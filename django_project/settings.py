@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
-from news.django_project import django_project
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +25,7 @@ SECRET_KEY = 'django-insecure-7s&^er_v$&6ugo$f5^1pi)yd$fsem+3b4y@@qisoe33h^bqi!e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django_project.onrender.com']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -45,10 +43,10 @@ INSTALLED_APPS = [
     #  local
      "accounts",
      "pages.apps.PagesConfig",
-    
-    
-]
+     "articles.apps.ArticlesConfig",
 
+]
+TIME_ZONE ="America/New_York"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,8 +84,10 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 
 DATABASES = {
     'default': {
+        
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        
     }
 }
 
@@ -126,7 +126,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-
 STATIC_URL = 'static/'
 
 # Default primary key field type
@@ -146,6 +145,4 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
-
 
